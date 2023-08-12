@@ -1,3 +1,1 @@
-# todo
-# gatsby
 # HNews
