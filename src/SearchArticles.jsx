@@ -26,12 +26,14 @@ function SearchArticles() {
 			);
 			const articles = response.data.hits.filter(article => article.url != null);
 			if (articles.length === 0){
-				setError('No matching articles')
+				setError('No matching articles');
+				setArticles([]);
 			} else {
 				setArticles(articles);
 			}
 		} catch (error){
 			setError('Fetching data failed');
+			setArticles([]);
 		} finally {
 			setLoading(false);
 		}
