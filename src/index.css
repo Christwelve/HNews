@@ -18,9 +18,15 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  display: block;
 }
-a:hover {
-  color: #535bf2;
+a > h1 {
+	color: rgba(255, 255, 255, 0.87);
+	transition: text-shadow 0.2s ease-in-out;
+
+}
+a > h1:hover {
+	text-shadow: 2px 2px #646cff;
 }
 
 body {
@@ -36,6 +42,25 @@ h1 {
   line-height: 1.1;
 }
 
+li {
+  list-style: none;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+  text-align: left;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 250;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 1%;
+}
+li:hover {
+  border-color: #646cff;
+}
 
 input {
   border-radius: 8px;
@@ -47,33 +72,64 @@ input {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin: 5%;
+  margin: 1%;
+  outline: none;
 }
 input:hover {
   border-color: #646cff;
 }
-input:focus,
-input:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+input:focus {
+  border-color: #646cff;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+	margin: 1%;
+  	border-radius: 8px;
+  	border: 1px solid transparent;
+  	padding: 0.6em 1.2em;
+  	font-size: 1em;
+  	font-weight: 500;
+  	font-family: inherit;
+  	background-color: #1a1a1a;
+  	cursor: pointer;
+  	transition: border-color 0.25s;
+  	outline: none;
 }
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.input-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.error-message {
+	margin: 5%;
+  	border-radius: 8px;
+  	border: 1px solid transparent;
+  	padding: 0.6em 1.2em;
+  	font-size: 1em;
+  	font-weight: 500;
+  	font-family: inherit;
+  	background-color: rgb(208, 57, 57);
+  	outline: none;
+}
+
+.loading-spinner {
+	margin: 1%;
+  	width: 20px;
+ 	height: 20px;
+ 	border: 4px solid rgba(100, 108, 255, 0.2);
+ 	border-top: 4px solid #646cff;
+ 	border-radius: 50%;
+  	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
 
 @media (prefers-color-scheme: light) {
