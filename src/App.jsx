@@ -1,4 +1,4 @@
-import SearchArticles from './SearchArticles';
+import SearchArticles from './components/SearchArticles';
 
 import './App.css'
 
