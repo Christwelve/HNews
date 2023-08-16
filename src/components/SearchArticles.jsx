@@ -29,7 +29,8 @@ function SearchArticles() {
 	}
 	
 	useEffect(() => {
-		fetchArticles();
+		if (page != 1)
+			fetchArticles();
 	}, [page])
 
 	const fetchArticles = async () => {
@@ -69,19 +70,23 @@ function SearchArticles() {
 					{loading && <div className="loading-spinner" aria-disabled={!loading}></div>}
 				</div>
 				<button type="submit">Search</button>
-			</form>
-			<button onClick={handlePrevButton}>Prev</button>
-			<span>{page}</span>
-			<button onClick={handleNextButton}>Next</button>	
+			</form>	
 			{error && <div className="error-message">{error}</div>}
+			{articles.length > 0 ? (
+			<>
+				<button onClick={handlePrevButton} disabled={page < 2}>Prev</button>
+				<span>{page}</span>
+				<button onClick={handleNextButton}>Next</button>	
+			</>
+			) : null}
 			<ul>
-				{(articles.length > 0) && articles.map((article) => (
-					<li key={article.objectID}>
-						<a href={article.url} target="_blank" rel="noopener noreferrer">
-						{article.title}
-						</a>
+				{(articles.length > 0) ? articles.map((article) => (
+						<li key={article.objectID}>
+							<a href={article.url} target="_blank" rel="noopener noreferrer">
+							{article.title}
+							</a>
 					</li>
-				))}
+				)) : null }
 			</ul>
 		</div>
 	);
